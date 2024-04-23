@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% if form.instance.pk %}Edit Employee{% else %}Add Employee{% endif %}</title>
+</head>
+
+<body>
+    <h1>{% if form.instance.pk %}Edit Employee{% else %}Add Employee{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'employee_list' %}">Back to Employee List</a>
+</body>
+
+</html>
